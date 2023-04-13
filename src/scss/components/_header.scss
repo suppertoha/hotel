@@ -1,0 +1,115 @@
+//@include burger
+
+.header {
+  position: relative;
+  border-bottom: 1px solid #293a50;
+
+  &__content {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include min1024 {
+      padding: 20px 0;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.burger {
+  @include burger;
+  z-index: 10;
+  &__line {
+    background: #293a50;
+  }
+
+  &:before {
+    background: #293a50;
+  }
+
+  &:after {
+    background: #293a50;
+  }
+
+  &.burger--active {
+    &:before {
+      background: #ffffff;
+    }
+
+    &:after {
+      background: #ffffff;
+    }
+  }
+
+  @include min1024 {
+    &:hover{
+      .burger__line {
+        background: #E9896B;
+      }
+
+      &:before {
+        background: #E9896B;
+      }
+
+      &:after {
+        background: #E9896B;
+      }
+    }
+  }
+}
+
+.nav {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #384a63;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+
+  &.menu--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__list {
+    padding-top: 130px;
+  }
+
+  &__item {
+    border-top: 1px solid #ffffff;
+  }
+
+  &__link {
+    display: block;
+    padding: 60px 0px 60px 15px;
+    font-family: "Dorsa";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 106px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    transition: 0.3s;
+    @include min1024 {
+      font-size: 200px;
+      line-height: 211px;
+      padding: 20px 30px;
+      &:hover{
+        background: #E9896B;
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,55 @@
+.main {
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__text {
+    font-family: "Roboto Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143.19%;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #293a50;
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    @include min1024 {
+      p {
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  &__block {
+  }
+
+  &__title {
+  }
+
+  &__image {
+
+  }
+
+  &__button {
+    display: none;
+  }
+}
+.container {
+}
+.btn-icon {
+  &__icon {
+  }
+}
+.image {
+}

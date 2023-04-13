@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+
+    <section class="main">
+      <div class="container main__container">
+        <div class="main__text">
+          <p>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+          </p>
+          <p>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint
+          </p>
+        </div>
+
+        <div class="main__block">
+
+          <h1 class="main__title">
+            <svg class="btn-icon__icon">
+              <use xlink:href="img/sprite.svg#title-text-left"></use>
+            </svg>
+            <svg class="btn-icon__icon">
+              <use xlink:href="img/sprite.svg#title-text-right"></use>
+            </svg>
+          </h1>
+
+          <div class="main__box">
+            <div class="main__image">
+              <picture>
+                <source
+                  srcset="img/main-bg.webp"
+                  type="image/webp"
+                />
+                <img
+                  loading="lazy"
+                  src="img/image-sidebar-2.jpg"
+                  class="image"
+                  alt="gallery"
+                />
+              </picture>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="main__button">
+          Book now
+        </button>
+      </div>
+    </section>
+
+    @include('partials/footer.html')
+  </div>
+
+</body>
+
+</html>
