@@ -1,7 +1,39 @@
 .main {
+  padding-top: 70px;
+  min-height: 100%;
+  position: relative;
+  height: 100%;
+
+  @include min1024 {
+    padding-top: 80px;
+
+  }
+
+  &__line{
+    @include min1024 {
+      width: 2px;
+      height: calc(var(--index) * 10);
+      background: #293A50;
+      position: absolute;
+      left: 50%;
+      bottom: calc(var(--index) * -5);
+      z-index: -1;
+      transform: translate(0%, -50%);
+
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: column-reverse;
+
+    @include min1024 {
+      flex-direction: column;
+      position: relative;
+      min-height: 100%;
+      height: 100%;
+
+    }
   }
 
   &__text {
@@ -10,11 +42,13 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 143.19%;
+    padding: 30px 15px 0;
+    position: relative;
 
     letter-spacing: 0.04em;
     text-transform: uppercase;
-
     color: #293a50;
+    border-top: 1px solid #293a50;
 
     p {
       &:not(:last-child) {
@@ -23,33 +57,221 @@
     }
 
     @include min1024 {
+
+      top: calc(var(--index) * 3);
       p {
         &:not(:last-child) {
           margin-bottom: 15px;
         }
       }
+
+      border-top: none;
+      padding: 0;
+      max-width: 322px;
+      margin-left: auto;
+      margin-right: 30px;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    z-index: 2;
+    height: 77px;
+    width: 177px;
+    fill: #293a50;
+
+    &-left {
+      top: 35px;
+      left: 15px;
+    }
+
+    &-right {
+      bottom: 35px;
+      right: 15px;
+    }
+
+    @include min1024 {
+      //height: 95px;
+      //width: 235px;
+
+      width: calc(var(--index) * 17);
+      height: calc(var(--index) * 7);
+
+      &-left {
+        left: calc(var(--index) * 0);
+        top: calc(var(--index) * 1.5);
+      }
+
+      &-right {
+        right:  calc(var(--index) * 0);
+        bottom:  calc(var(--index) * 1.5);
+      }
+    }
+
+    @include min1600 {
+      width: calc(var(--index) * 21);
+      height: calc(var(--index) * 10);
     }
   }
 
   &__block {
+    position: relative;
+    max-width: 490px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    @include min1024 {
+      max-width:  calc(var(--index) * 40.5);
+      margin-top: calc(var(--index) * 3);
+      margin-bottom: 0;
+    }
+
+    @include min1600 {
+      max-width:  calc(var(--index) * 48);
+      margin-top: calc(var(--index) * -4);
+    }
+  }
+
+  &__box {
+    width: 264px;
+    height: 264px;
+    margin: 0 auto;
+    padding: 10px;
+
+    position: relative;
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background-image: url(../img/ellipse-mobile.svg);
+      background-repeat: no-repeat;
+      background-position: 0% 100%;
+    }
+
+    @include min1024 {
+      //width: 364px;
+      //height: 364px;
+      background: #EBF0FE;
+      width: calc(var(--index) * 22);
+      height: calc(var(--index) * 22);
+
+      &:before {
+        //background-size: 268px 165px;
+
+        background-size: calc(var(--index) * 16);
+      }
+
+      &:after {
+        height: 53px;
+      }
+    }
+
+    @include min1600 {
+      width: calc(var(--index) * 25);
+      height: calc(var(--index) * 24.4);
+      &:before {
+        background-size: calc(var(--index) * 18.4);
+      }
+
+    }
   }
 
   &__title {
   }
 
   &__image {
+    display: flex;
+    align-self: flex-start;
+    width: 100%;
+    height: 100%;
+    width: 245px;
+    height: 245px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
 
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background: rgba(41, 58, 80, 0.35);
+    }
+
+    @include min1024 {
+      //width: 345px;
+      //height: 345px;
+      width: calc(var(--index) * 21);
+      height: calc(var(--index) * 21);
+    }
+
+    @include min1600 {
+      width: calc(var(--index) * 23);
+      height: calc(var(--index) * 23);
+    }
   }
 
   &__button {
     display: none;
+
+
+    @include min1024 {
+
+      display: block;
+      border: none;
+      width: calc(var(--index) * 7);
+      height: calc(var(--index) * 7);
+      cursor: pointer;
+      position: absolute;
+      left: calc(var(--index) * 9);
+      bottom: calc(var(--index) * 3);
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background-image: url(../img/ellipse-button.svg);
+        background-repeat: no-repeat;
+        //background-position: 0% 100%;
+        background-size: calc(var(--index) * 7);
+      }
+    }
+  }
+
+  span{
+    border-radius: 50%;
+    background: #e9896b;
+    color: #ffffff;
+    width: 90%;
+    height: 90%;
+    margin: 10px;
+    font-family: "Dorsa";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 }
-.container {
+.block-container {
+  min-height: 100vh;
 }
-.btn-icon {
-  &__icon {
-  }
-}
+
 .image {
 }

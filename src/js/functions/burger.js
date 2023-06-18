@@ -6,7 +6,6 @@ import { enableScroll } from "../functions/enable-scroll";
   const menu = document?.querySelector("[data-menu]");
   const menuItems = document?.querySelectorAll("[data-menu-item]");
   const overlay = document?.querySelector("[data-menu-overlay]");
-  //const searchMobile = document.querySelector(".search-mobile ");
 
   burger?.addEventListener("click", (e) => {
     burger?.classList.toggle("burger--active");
@@ -14,13 +13,11 @@ import { enableScroll } from "../functions/enable-scroll";
     if (menu?.classList.contains("menu--active")) {
       burger?.setAttribute("aria-expanded", "true");
       burger?.setAttribute("aria-label", "Закрыть меню");
-      searchMobile.classList.add("active");
 
       disableScroll();
     } else {
       burger?.setAttribute("aria-expanded", "false");
       burger?.setAttribute("aria-label", "Открыть меню");
-      searchMobile.classList.remove("active");
 
       enableScroll();
     }
@@ -45,10 +42,4 @@ import { enableScroll } from "../functions/enable-scroll";
   });
 })();
 
-const buttonMobile = document.querySelector(".button-mobile");
-if (buttonMobile) {
-  const buttonEl=document.querySelector('.search-mobile ')
-  buttonMobile.addEventListener("click", () => {
-    buttonEl.classList.toggle("active");
-  });
-}
+

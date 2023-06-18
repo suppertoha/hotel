@@ -1,8 +1,25 @@
 //@include burger
+.bb{
+  height: 1px;
+  width: 100%;
+  background: #293a50;
+}
 
 .header {
-  position: relative;
-  border-bottom: 1px solid #293a50;
+  background: #EBF0FE;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  overflow-x: clip;
+
+  &__menu{
+    padding-right: 15px;
+    @include min1024 {
+      padding-right: 30px;
+    }
+  }
 
   &__content {
     padding: 15px 0;
@@ -18,12 +35,17 @@
   &__logo {
     display: flex;
     align-items: flex-start;
+    padding-left: 15px;
+
+    @include min1024 {
+      padding-left: 30px;
+    }
   }
 }
 
 .burger {
   @include burger;
-  z-index: 10;
+  z-index: 101;
   &__line {
     background: #293a50;
   }
@@ -47,6 +69,7 @@
   }
 
   @include min1024 {
+
     &:hover{
       .burger__line {
         background: #E9896B;
@@ -63,17 +86,20 @@
   }
 }
 
+.block-container{
+  //height: 100vh;
+}
+
 .nav {
-  position: fixed;
-  overflow: auto;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
-  bottom: 0;
   background: #384a63;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
+  z-index: 100;
 
   &.menu--active {
     opacity: 1;
@@ -81,7 +107,7 @@
   }
 
   &__list {
-    padding-top: 130px;
+    padding-top: 80px;
   }
 
   &__item {
@@ -90,7 +116,7 @@
 
   &__link {
     display: block;
-    padding: 60px 0px 60px 15px;
+    padding: 60px 15px;
     font-family: "Dorsa";
     font-style: normal;
     font-weight: 400;
@@ -109,6 +135,10 @@
       }
     }
   }
+}
+
+.dis-scroll{
+  padding-right: 0 !important;
 }
 
 
