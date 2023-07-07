@@ -22,38 +22,26 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 //		}
 //	})
 
-//	//let itemsL = gsap.utils.toArray('.gallery__left .gallery__item')
 
-//	//itemsL.forEach(item => {
-//	//	gsap.fromTo(item, { opacity: 0, x: -50 }, {
-//	//		opacity: 1, x: 0,
-//	//		scrollTrigger: {
-//	//			trigger: item,
-//	//			start: '-850',
-//	//			end: '-100',
-//	//			scrub: true
-//	//		}
-//	//	})
-//	//})
-
-//	//let itemsR = gsap.utils.toArray('.gallery__right .gallery__item')
-
-//	//itemsR.forEach(item => {
-//	//	gsap.fromTo(item, { opacity: 0, x: 50 }, {
-//	//		opacity: 1, x: 0,
-//	//		scrollTrigger: {
-//	//			trigger: item,
-//	//			start: '-750',
-//	//			end: 'top',
-//	//			scrub: true
-//	//		}
-//	//	})
-//	//})
 
 //}
 
-gsap.from('.header__content', { opacity: 0, duration: 1, y: - 50 });
-gsap.from('.header .bb', { opacity: 0, duration: 1, width: 0 });
-gsap.from('.main__block', {  duration: 3, y: - 50 });
+const tlMain = gsap.timeline();
 
+tlMain
+  .to('.header .bb', { opacity: 1, duration: 0.6, width: '100%' })
+  .to('.header__content', { opacity: 1, duration: 0.3, y: 0 })
+  .to('.block__before', { duration: 2,  rotation: -360},"=")
+  .to('.main__block', { duration: 3, y: 0 }, '')
+  .to('.block__item--left', { duration: 1, right: 0 }, '')
+  .to('.block__item--right', { duration: 1, left: 0 }, '')
 
+  .fromTo('.main__text strong', { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.5, stagger: 0.3, ease: 'power2.out', })
+  .to('.button-line', { duration: 1, scale: 1 })
+  .from('.button-line__before', { duration: 1,  rotation: 360 })
+
+  //.to(".main-map", { opacity: 1, duration: 0.4, ease: "sine.out" }),"=-0.6";
+
+  ;
+
+  //

@@ -1,8 +1,9 @@
 //@include burger
 .bb{
   height: 1px;
-  width: 100%;
+  width: 0%;
   background: #293a50;
+  opacity: 0;
 }
 
 .header {
@@ -26,6 +27,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    opacity: 0;
+    transform: translateY(-50px);
 
     @include min1024 {
       padding: 20px 0;
