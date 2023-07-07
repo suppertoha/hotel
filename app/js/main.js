@@ -270,6 +270,10 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 //}
 
+/*header+main*/
+
+//! tlMain
+
 const tlMain = gsap.timeline();
 tlMain.to('.header .bb', {
   opacity: 1,
@@ -285,33 +289,53 @@ tlMain.to('.header .bb', {
 }, "=").to('.main__block', {
   duration: 3,
   y: 0
-}, '').to('.block__item--left', {
+}, '');
+
+//! tlMainTitle
+
+const tlMainTitle = gsap.timeline({
+  delay: 1.5
+});
+tlMainTitle.to('.block__item--left', {
   duration: 1,
   right: 0
-}, '').to('.block__item--right', {
+}, "=").to('.block__item--right', {
   duration: 1,
   left: 0
-}, '').fromTo('.main__text strong', {
-  opacity: 0,
-  x: 50
-}, {
+}, "=").to('.line__el', {
+  opacity: 1,
+  height: '100%',
+  duration: 0.6
+}, "=");
+const tlMainText = gsap.timeline();
+
+//! tlButton
+const tlButton = gsap.timeline({
+  delay: 1.5
+});
+tlButton.to('.button-line', {
+  duration: 0.3,
+  scale: 1
+}, "=-0.4").to('.button-line__before', {
+  duration: 0.7,
+  rotation: 360
+}, "=-0.3").to('.button-line__text span', {
+  duration: 0.7,
+  opacity: 1
+}, "=-0.3");
+
+//! tlBlockText
+const tlBlockText = gsap.timeline({
+  delay: 1.5
+});
+tlBlockText.to('.main__text strong', {
   opacity: 1,
   x: 0,
-  duration: 0.5,
-  stagger: 0.3,
-  ease: 'power2.out'
-}).to('.button-line', {
-  duration: 1,
-  scale: 1
-}).from('.button-line__before', {
-  duration: 1,
-  rotation: 360
-})
+  duration: 0.4,
+  stagger: 0.1
+}, "=");
 
-//.to(".main-map", { opacity: 1, duration: 0.4, ease: "sine.out" }),"=-0.6";
-;
-
-//
+/*End header+main*/
 
 /***/ }),
 
