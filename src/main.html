@@ -8,9 +8,13 @@
 
     @include('partials/header.html')
 
+    <!-- main -->
     <section class="main">
       <div class="main__container">
         <div class="main__text">
+          <div class="border-block">
+            <div class="border-block__el"></div>
+          </div>
           <p>
             <strong>Amet minim mollit non deserunt ullamco est</strong>
             <strong>sit aliqua dolor do amet sint. Velit officia</strong>
@@ -22,6 +26,7 @@
             <strong>Amet minim mollit non deserunt ullamco est</strong>
             <strong>sit aliqua dolor do amet sint</strong>
           </p>
+
         </div>
 
         <div class="main__block block">
@@ -83,7 +88,46 @@
       </div>
 
       <div class="main__line line"><div class="line__el"></div></div>
+
     </section>
+    <!--End main -->
+
+    <!-- main-navigation -->
+      <div class="main-navigation">
+        <div class="main-navigation__inner">
+          <div class="main-navigation__item">
+            <div class="main-navigation__accordion accordion">
+
+              <button class="accordion__control accordion-start-js open">
+                <div class="accordion__img">
+                  <img
+                  loading="lazy"
+                  src="img/calendar.svg"
+                  class="logo__image"
+                  alt="logo"
+                />
+                </div>
+                <span class="accordion__title">arrival</span>
+                <span class="accordion__icon">
+
+                  <svg class="arrow-triangle">
+                    <use xlink:href="img/sprite.svg#arrow-triangle"></use>
+                  </svg>
+                </span>
+              </button>
+
+              <ul class="accordion__content accordion-content-js open">
+
+              </ul>
+
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    <!-- End main-navigation -->
+
 
     @include('partials/footer.html')
   </div>

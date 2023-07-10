@@ -221,6 +221,14 @@ ul {
   width: 0%;
   background: #293a50;
   opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 70px;
+}
+@media (min-width: 1024px) {
+  .bb {
+    top: 80px;
+  }
 }
 
 .header {
@@ -251,10 +259,7 @@ ul {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  opacity: 0;
-  -webkit-transform: translateY(-50px);
-  -ms-transform: translateY(-50px);
-  transform: translateY(-50px);
+  margin-top: -80px;
 }
 @media (min-width: 1024px) {
   .header__content {
@@ -396,10 +401,12 @@ ul {
 }
 
 .nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
+  overflow: auto;
+  height: 100%;
   background: #384a63;
   opacity: 0;
   visibility: hidden;
@@ -444,16 +451,38 @@ ul {
   }
 }
 
-.dis-scroll {
-  padding-right: 0 !important;
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background: #384a63;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 100;
+}
+
+.menu--active .nav {
+  opacity: 1;
+  visibility: visible;
 }
 
 .main {
-  padding-top: 70px;
   min-height: 100%;
   position: relative;
   overflow: hidden;
   height: 100%;
+  margin-top: 100px;
+}
+@media (min-width: 1024px) {
+  .main {
+    margin-top: 0;
+  }
 }
 .main__text {
   font-family: "Roboto Condensed";
@@ -461,21 +490,34 @@ ul {
   font-weight: 400;
   font-size: 14px;
   line-height: 143.19%;
-  padding: 30px 15px 0;
   z-index: 14;
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-top: 70px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #293a50;
-  border-top: 1px solid #293a50;
+}
+@media (min-width: 1024px) {
+  .main__text {
+    margin-top: 0;
+  }
+}
+.main__text strong {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
+  opacity: 0;
+}
+.main__text p {
+  padding: 0 20px;
 }
 .main__text p:not(:last-child) {
   margin-bottom: 10px;
 }
 @media (min-width: 1024px) {
   .main__text {
+    position: absolute;
+    top: 0;
+    right: 0;
     top: calc(var(--index) * 3);
     border-top: none;
     padding: 0;
@@ -485,12 +527,11 @@ ul {
   }
   .main__text strong {
     display: block;
-    opacity: 0;
-    -webkit-transform: translateX(30px);
-    -ms-transform: translateX(30px);
-    transform: translateX(30px);
     font-size: calc(var(--index) * 0.6);
     line-height: 1.4;
+  }
+  .main__text p {
+    padding: 0;
   }
   .main__text p:not(:last-child) {
     margin-bottom: 15px;
@@ -534,15 +575,22 @@ ul {
 
 .line {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 50%;
   z-index: -1;
+  top: 300px;
+  right: 0;
+  left: 0;
+  height: 75px;
+}
+@media (min-width: 1024px) {
+  .line {
+    top: auto;
+    bottom: 0;
+    height: 50%;
+  }
 }
 .line__el {
   position: absolute;
-  width: 2px;
+  width: 1px;
   background: #293A50;
   height: 100%;
   left: 50%;
@@ -739,10 +787,11 @@ ul {
 }
 .block__item--left {
   right: 0px;
+  right: -200px;
 }
 .block__item--right {
   bottom: 35px;
-  left: 0px;
+  left: -200px;
 }
 @media (min-width: 1024px) {
   .block__item {
@@ -801,10 +850,10 @@ ul {
   background-image: url(../img/ellipse-mobile.svg);
   background-repeat: no-repeat;
   background-position: 0% 100%;
-  background-size: 194px 119px;
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
+  background-size: 212px 129px;
 }
 @media (min-width: 1024px) {
   .block__before {
@@ -857,16 +906,10 @@ ul {
   align-self: flex-start;
   width: 100%;
   height: 100%;
-  width: 245px;
-  height: 245px;
   position: absolute;
   margin: 0 auto;
-}
-@media (min-width: 1024px) {
-  .block__image, .block .block__wrap {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  height: 100%;
 }
 .block__wrap--overflow {
   border-radius: 50%;
@@ -891,5 +934,30 @@ ul {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.border-block {
+  padding-bottom: 20px;
+  position: relative;
+}
+.border-block__el {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  width: 0%;
+  height: 1px;
+  background: #293a50;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+@media (min-width: 1024px) {
+  .border-block {
+    display: none;
+    padding-bottom: 0;
+  }
 }
 /*# sourceMappingURL=main.css.map */

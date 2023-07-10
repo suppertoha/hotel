@@ -10,12 +10,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/burger */ "./src/js/components/burger.js");
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/gsap */ "./src/js/components/gsap.js");
-/* harmony import */ var _components_gsap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_gsap__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/accordion */ "./src/js/components/accordion.js");
+/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_accordion__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/gsap */ "./src/js/components/gsap.js");
+/* harmony import */ var _components_gsap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_gsap__WEBPACK_IMPORTED_MODULE_3__);
 
-//import './components/accordion';
+
 //import './components/slider';
 //import './components/modal';
 //import './components/mouse-effect';
@@ -172,6 +174,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/accordion.js":
+/*!****************************************!*\
+  !*** ./src/js/components/accordion.js ***!
+  \****************************************/
+/***/ (() => {
+
+document.querySelectorAll(".accordion-start-js").forEach(el => {
+  el.addEventListener("click", () => {
+    el.classList.toggle("open");
+    let content = el.nextElementSibling;
+    if (content.classList.contains("open")) {
+      console.log("test");
+      document.querySelectorAll(".accordion-content-js").forEach(el => el.style.maxHeight = null);
+      document.querySelectorAll(".accordion-content-js").forEach(el => content.classList.remove("open"));
+    } else {
+      document.querySelectorAll(".accordion-content-js").forEach(el => el.style.maxHeight = null);
+      //content.style.maxHeight = content.scrollHeight + "px";
+      document.querySelectorAll(".accordion-content-js").forEach(el => content.classList.add("open"));
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./src/js/components/burger.js":
 /*!*************************************!*\
   !*** ./src/js/components/burger.js ***!
@@ -275,14 +301,14 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 //! tlMain
 
 const tlMain = gsap.timeline();
-tlMain.to('.header .bb', {
+tlMain.to('.bb', {
   opacity: 1,
   duration: 0.6,
   width: '100%'
 }).to('.header__content', {
   opacity: 1,
   duration: 0.3,
-  y: 0
+  margin: 0
 }).to('.block__before', {
   duration: 2,
   rotation: -360

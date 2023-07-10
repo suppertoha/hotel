@@ -4,6 +4,12 @@
   width: 0%;
   background: #293a50;
   opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 70px;
+  @include min1024 {
+    top: 80px;
+  }
 }
 
 .header {
@@ -14,6 +20,7 @@
   top: 0;
   z-index: 1000;
   overflow-x: clip;
+
 
   &__menu{
     padding-right: 15px;
@@ -27,8 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    opacity: 0;
-    transform: translateY(-50px);
+    margin-top: -80px;
 
     @include min1024 {
       padding: 20px 0;
@@ -94,15 +100,18 @@
 }
 
 .nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
+  overflow: auto;
+  height: 100%;
   background: #384a63;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
   z-index: 100;
+
 
   &.menu--active {
     opacity: 1;
@@ -111,6 +120,7 @@
 
   &__list {
     padding-top: 80px;
+
   }
 
   &__item {
@@ -129,6 +139,7 @@
     text-transform: uppercase;
     color: #ffffff;
     transition: 0.3s;
+
     @include min1024 {
       font-size: 200px;
       line-height: 211px;
@@ -140,9 +151,26 @@
   }
 }
 
-.dis-scroll{
-  padding-right: 0 !important;
+
+
+
+
+
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background: #384a63;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 100;
 }
 
-
-
+.menu--active .nav {
+  opacity: 1;
+  visibility: visible;
+}

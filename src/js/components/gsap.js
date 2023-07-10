@@ -31,8 +31,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 const tlMain = gsap.timeline();
 tlMain
-  .to('.header .bb', { opacity: 1, duration: 0.6, width: '100%' })
-  .to('.header__content', { opacity: 1, duration: 0.3, y: 0 })
+  .to('.bb', { opacity: 1, duration: 0.6, width: '100%' })
+  .to('.header__content', { opacity: 1, duration: 0.3, margin: 0})
   .to('.block__before', { duration: 2, rotation: -360 }, "=")
   .to('.main__block', { duration: 3, y: 0 }, '');
 

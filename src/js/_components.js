@@ -1,6 +1,6 @@
 
 import './components/burger';
-//import './components/accordion';
+import './components/accordion';
 //import './components/slider';
 //import './components/modal';
 //import './components/mouse-effect';
